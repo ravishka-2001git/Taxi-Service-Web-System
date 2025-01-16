@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Taxi services</title>
+    <!-- Favicon -->
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Design/styles.css">
+</head>
+<body>
+    <div class="banner">
+        <div class="navbar">
+            <h1 class="text-uppercase text-primary mb-1">City Taxi Services</h1>
+            <img src="Imgs/20240926_012106.png" alt="" class="logo">
+            <ul>
+                <li><a href="Home.html"class="btn">HOME</a></li>
+                <!-- Navbar - Booking Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">BOOKING</a>
+                <div class="dropdown-menu">
+                    <a href="Booking.html" class="dropdown-item">Book Taxi</a>
+                    <a href="Services.html" class="dropdown-item">Additional Service</a>
+                </div>
+                </div>
+
+                <!-- Navbar - Driver Dropdown -->
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">DRIVER</a>
+                <div class="dropdown-menu">
+                    <a href="Login_Drivers.html" class="dropdown-item">Driver Login</a>
+                    <a href="Drivers.html" class="dropdown-item">Driver Registration</a>
+                </div>
+                </div>
+                <li><a href="About.html"class="btn">About Us</a></li>
+                <li><a href="Contact.html"class="btn">Contact</a></li>
+            </ul>
+                <a href="Login.html"><button class="login-btn">Login</button></a>
+            </nav>
+        </div>
+
+         <!-- Page Header Start -->
+    <div class="container-fluid page-header">
+        <h1 class="display-3 text-uppercase text-white mb-3">DRIVERS Registration</h1>
+        <div class="d-inline-flex text-white">
+            <h6 class="text-uppercase m-0"><a class="text-white" href="">Home</a></h6>
+            <h6 class="text-body m-0 px-3">/</h6>
+            <h6 class="text-uppercase text-body m-0">DRIVERS</h6>
+        </div>
+    </div>
+    <!-- Page Header Start -->
+
+
+    <div class="container-book">
+        <div class="driver-section-topic">
+            <h1 class="display-4 text-uppercase text-center driver-5">Welcome..! <span class="text-primary">To Our New Driver...</span></h1>
+        </div>
+        <!-- Image and Booking Info -->
+        <div class="image-info-driver">
+            <div class="col-lg-6 mb-4">
+                <img src="Imgs/street-night-with-traffic.jpg" alt="Taxi Service">
+            </div>
+            <div class="col-lg-6 mb-4">
+                <div class="driver-page">
+                    <p>Auto Cars Taxi Service Family!</p>
+                </div>
+                <div class="driver-par">
+                <p>We're thrilled to have you join our team of dedicated drivers. Your role is crucial in providing reliable and efficient transportation services to our valued customers. To kick off your journey with us, please take a moment to complete the registration form below. Your accurate details ensure a smooth onboarding process, and we appreciate your commitment to upholding safety and service standards. If you have any questions or need assistance during the registration, our support team is here to help. Thank you for choosing City Taxi Services, where we're driving excellence together!</p> 
+                </div>
+                <div class="share">
+                    <h6>Share on:</h6>
+                    <div class="d-inline-flex-fb ">
+                        <a class="px-2" href=""><i class="fab fa-facebook-f"></i></a>
+                        <a class="px-2" href=""><i class="fab fa-twitter"></i></a>
+                        <a class="px-2" href=""><i class="fab fa-linkedin-in"></i></a>
+                        <a class="px-2" href=""><i class="fab fa-pinterest"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    <!-- Driver Registration Form -->
+    <div class="container-book">
+        <form class="Driver-form" id="driverForm" action="php_files/Driver-Registration.php" method="POST">
+            <div class="driver-form">
+                <!-- Personal Details Section -->
+                <h2>Personal Details</h2>
+                <div class="personal-details">
+                    <div><input type="text" id="fullName" placeholder="Full Name" name="fullName" required></div>
+                    <div><input type="text" id="nic" placeholder="NIC Number" name="nic" required></div>
+                    <div><input type="number" id="age" placeholder="Age" name="age" required></div>
+                    <div><input type="text" id="address" placeholder="Address" name="address" required></div>
+                    <div><input type="email" id="email" placeholder="Your Email" name="email" required></div>
+                    <div><input type="tel" id="mobile" placeholder="Mobile Number" name="mobile" required></div>
+                    <div><label for="Birthday">Birthday</label><input type="date" id="Birthday" name="Birthday" required></div>
+                    <div><label for="gender">Gender</label>
+                        <select id="gender" name="Gender">
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Login Details Section -->
+                <h2>Login Details</h2>
+                <div><input type="text" id="Username" placeholder="Username" name="Username" required></div>
+                <div><input type="password" id="Password" placeholder="Password" name="Password" required></div>
+
+                <!-- Vehicle Details Section -->
+                <h2>Vehicle Details</h2>
+                <div class="personal-details">
+                    <div class="Driver-option">
+                        <label for="VehicleType">Vehicle Type</label>
+                        <select id="VehicleType" name="VehicleType">
+                            <option value="Tuk">Tuk Tuk</option>
+                            <option value="MiniCar">Mini Car</option>
+                            <option value="Car">Car</option>
+                            <option value="MiniVan">Mini Van</option>
+                            <option value="Van">Van</option>
+                        </select>
+                    </div>
+                    <div><input type="text" id="VehicleModel" placeholder="Vehicle Model" name="VehicleModel" required></div>
+                    <div><input type="text" id="LicenseNumber" placeholder="License Number" name="LicenseNumber" required></div>
+                    <div><input type="text" id="CarPlateNumber" placeholder="Car Plate Number" name="CarPlateNumber" required></div>
+                </div>
+
+                <button type="submit" class="submit-btn">Register Driver & Vehicle</button>
+            </div>
+        </form>
+    </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('#driverForm').on('submit', function (event) {
+                event.preventDefault(); // Prevent form from submitting normally
+
+                // Send an AJAX request to the PHP script
+                $.ajax({
+                    url: 'php_files/Driver-Registration.php',
+                    type: 'POST',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        alert(response); // Display server response
+                        $('#driverForm')[0].reset(); // Clear form fields
+                    },
+                    error: function () {
+                        alert('An error occurred while submitting the form.');
+                    }
+                });
+            });
+        });
+    </script>
+
+    <!-- Footer Start -->
+        
+    <div class="container-fluid bg-dark py-4 px-sm-3 px-md-5">
+        <p class="mb-2 text-center text-body">&copy; <a href="https://freewebsitecode.com/">City Taxi services</a>. All Rights Reserved.</p>
+        <p class="m-0 text-center text-body">Designed by Ravishka Fernando</p>
+    </div>
+    <!-- Footer End -->
+    
+     <script src="script.js"></script>
+</body>
+</html>

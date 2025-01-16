@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>City Taxi Services - Driver Dashboard</title>
+    <link rel="stylesheet" href="Design/styles.css">
+</head>
+<body>
+    <!-- Navigation Bar Start -->
+    <div class="banner">
+        <div class="navbar">
+            <h1 class="text-uppercase text-primary mb-1">City Taxi Services</h1>
+            <img src="Imgs/20240926_012106.png" alt="City Taxi Logo" class="logo">
+            <ul>
+                <li><a href="Home.html" class="btn">HOME</a></li>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">BOOKING</a>
+                    <div class="dropdown-menu">
+                        <a href="Booking.html" class="dropdown-item">Book Taxi</a>
+                        <a href="Services.html" class="dropdown-item">Additional Service</a>
+                    </div>
+                </div>
+                <div class="nav-item dropdown">
+                    <a href="#" class="nav-link">DRIVER</a>
+                    <div class="dropdown-menu">
+                        <a href="Login_Drivers.html" class="dropdown-item">Driver Login</a>
+                        <a href="Drivers.html" class="dropdown-item">Driver Registration</a>
+                    </div>
+                </div>
+                <li><a href="About.html" class="btn">About Us</a></li>
+                <li><a href="Contact.html" class="btn">Contact</a></li>
+            </ul>
+            <a href="Login.html"><button class="login-btn">Login</button></a>
+        </div>
+    </div>
+    <!-- Navigation Bar End -->
+
+             <!-- Page Header Start -->
+             <div class="container-fluid page-header">
+                <h1 class="display-3 text-uppercase text-white mb-3">Driver Dashboard</h1>
+                <div class="d-inline-flex text-white">
+                    <h6 class="text-uppercase m-0"><a class="text-white" href="">Home</a></h6>
+                    <h6 class="text-body m-0 px-3">/</h6>
+                    <h6 class="text-uppercase text-body m-0">Driver Dashboard</h6>
+                </div>
+            </div>
+            <!-- Page Header Start -->
+
+
+    
+
+     <!-- Driver Dashboard Start -->
+     <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        // Fetch booking data for the driver
+        fetch("php_files/Dashboard_Drivers.php")
+            .then(response => response.json())
+            .then(data => {
+                const tableBody = document.getElementById("approvalList");
+
+                data.forEach(booking => {
+                    const row = document.createElement("tr");
+
+                    row.innerHTML = `
+                        <td>${booking.user_name}</td>
+                        <td>${booking.user_phone}</td>
+                        <td>${booking.pickup_time}</td>
+                        <td>${booking.pickup_location}</td>
+                        <td>${booking.dropoff_location}</td>
+                        <td>${booking.taxi_fare}</td>
+                        <td>
+                            <button onclick="approveDriver(this)" class="approve-btn">&#10003;</button>
+                            <button onclick="declineDriver(this)" class="decline-btn">&#10060;</button>
+                        </td>
+                    `;
+
+                    tableBody.appendChild(row);
+                });
+            })
+            .catch(error => console.error("Error fetching bookings:", error));
+    });
+</script>
+       
+
+
+        <div class="dashboard-content">
+            <!-- Status Toggle -->
+            <div class="status-section">
+                <p><strong>Status:</strong> <span id="driverStatus">AVAILABLE</span></p>
+                <button onclick="toggleStatus()" class="status-btn">Toggle Availability</button>
+            </div>
+            <!-- Recent Ratings -->
+            <div class="ratings-section">
+                <h3>Recent Ratings</h3>
+                <ul id="recentRatings">
+                    <li>★★★★☆ - "Great driver!"</li>
+                    <li>★★★★★ - "Excellent service."</li>
+                </ul>
+            </div>
+        </div>
+
+
+    <!-- Driver Dashboard End -->
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark py-4 px-sm-3 px-md-5">
+        <p class="mb-2 text-center text-body">&copy; <a href="https://www.facebook.com/ravishka.fernandoz">City Taxi Services</a>. All Rights Reserved.</p>
+        <p class="m-0 text-center text-body">Designed by Ravishka Fernando</p>
+    </div>
+    <!-- Footer End -->
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
